@@ -2,13 +2,17 @@
 
 Docker container to serve a quick and simple completely self-contained WebRTC audio conferencing room, no other connections necessary. [Janus Gateway](https://github.com/meetecho/janus-gateway) is used as a WebRTC server, nginx serves the web page, and [Coturn](https://github.com/coturn/coturn) is used as a STUN server. 
 
+# History
+
+First all glued together by [Ammar](https://github.com/0x41mmarVM)
+
 ## Usage
 
 Build the docker container and run
 
 ```bash
 $ docker build . -t audioroom
-$ docker run -p 80:80 -p 3478:3478/udp -p 10000-10200:10000-10200/udp audioroom
+$ docker run --rm --detach --name audioroom -p 80:80 -p 3478:3478/udp -p 10000-10200:10000-10200/udp audioroom
 ```
 
 ## UDP and Port Forwarding
