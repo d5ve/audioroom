@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Audio Bridge</title>
+<script type="text/javascript" src="assets/adapter.min.js" ></script>
+<script type="text/javascript" src="assets/jquery.min.js" ></script>
+<script type="text/javascript" src="assets/jquery.blockUI.min.js" ></script>
+<script type="text/javascript" src="assets/bootstrap.min.js"></script>
+<script type="text/javascript" src="assets/bootbox.min.js"></script>
+<script type="text/javascript" src="assets/spin.min.js"></script>
+<script type="text/javascript" src="assets/bootstrap-slider.min.js"></script>
+<script type="text/javascript" src="janus.js" ></script>
+<script type="text/javascript" src="audiobridgetest.js"></script>
+<link rel="stylesheet" href="assets/bootstrap.min.css" type="text/css"/>
+<link rel="stylesheet" href="assets/demo.css" type="text/css"/>
+<link rel="stylesheet" href="assets/bootstrap-slider.css" type="text/css"/>
+</head>
+<body>
+
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="page-header">
+				<h1>Audio Room</h1>
+			</div>
+			<div class="container" id="details">
+				<div class="row">
+					<div class="col-md-12">
+						<h3>Introduction</h3>
+						<p>The Audio Bridge demo is a simple example of how to implement
+						an audio conferencing application through Janus. Since it makes use
+						of the AudioBridge plugin, all the audio contributions will be mixed,
+						which means that a single PeerConnection will be created no matter
+						how many participants will join the room.</p>
+					</div>
+				</div>
+			</div>
+			<div class="container" id="audiojoin">
+				<div class="row">
+					<span class="label label-info" id="you"></span>
+					<div class="col-md-12" id="controls">
+						<div class="input-group margin-bottom-md hide" id="registernow">
+							<span class="input-group-addon">@</span>
+							<input class="form-control" type="text" placeholder="Choose a display name" autocomplete="off" id="username" onkeypress="return checkEnter(this, event);" />
+							<span class="input-group-btn">
+								<button class="btn btn-success" autocomplete="off" id="register">Join the room</button>
+							</span>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="container hide" id="room">
+				<div class="row">
+					<div class="col-md-6">
+						<div class="panel panel-default">
+							<div class="panel-heading">
+								<h3 class="panel-title">Participants <span class="label label-info hide" id="participant"></span>
+								<button class="btn-xs btn-danger hide pull-right" autocomplete="off" id="toggleaudio">Mute</button>
+								<button class="btn-xs btn-primary hide pull-right" autocomplete="off" id="position">Position</button></h3>
+							</div>
+							<div class="panel-body">
+								<ul id="list" class="list-group">
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-6">
+						<div class="panel panel-default">
+							<div class="panel-heading">
+								<h3 class="panel-title">Mixed Audio</h3>
+							</div>
+							<div class="panel-body" id="mixedaudio"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<hr>
+	<div class="footer">
+	</div>
+</div>
+
+</body>
+</html>
